@@ -5,6 +5,7 @@
 
 # Dist
 .venv
+.env
 __pycache__
 
 # IDE

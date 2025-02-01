@@ -1,0 +1,34 @@
+[
+    {
+        "name": "users",
+        "description": "Operaciones con usuarios"
+    },
+    {
+        "name": "roles",
+        "description": "Operaciones con roles"
+    },
+    {
+        "name": "tags",
+        "description": "Operaciones con etiquetas"
+    },
+    {
+        "name": "specimens",
+        "description": "Operaciones con especimenes"
+    },
+    {
+        "name": "articles",
+        "description": "Operaciones con articulos"
+    },
+    {
+        "name": "post",
+        "description": "Operaciones con post"
+    },
+    {
+        "name": "post/comments",
+        "description": "Operaciones con comentarios de post"
+    },
+    {
+        "name": "post/answers",
+        "description": "Operaciones con respuestas de post"
+    }
+]
