@@ -7,6 +7,8 @@ class UserController:
 
     def create_user(self, username: str, email: str, password: str):
         try:
+            if not (8 <= len(password) <= 30):
+                raise ValueError("La contraseña debe tener entre 8 y 30 caracteres")
             return self.userService.createUser(username, email, password)
         except ValueError as e:
             raise HTTPException(status_code=400, detail=str(e))
