@@ -1,0 +1,11 @@
+# Local
+.DS_Store
+*.local
+*.log*
+
+# Dist
+.venv
+
+# IDE
+.idea
+.vscode
