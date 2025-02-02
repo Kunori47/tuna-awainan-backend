@@ -5,6 +5,7 @@
 
 # Dist
 .venv
+venv
 .env
 __pycache__
 

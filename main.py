@@ -14,8 +14,6 @@ app = FastAPI(
     openapi_tags=tags_metadata
 )
 
-app.mount("/test", StaticFiles(directory="test"), name="test")
-
 # Incluir las rutas definidas en items.py
 app.include_router(items.router)
 
