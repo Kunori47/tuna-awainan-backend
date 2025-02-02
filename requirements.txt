@@ -3,3 +3,4 @@ uvicorn
 mariadb
 python-dotenv
 bcrypt
+python-multipart

@@ -1,3 +1,4 @@
+from fastapi import UploadFile, File
 from pydantic import BaseModel, Field
 
 class User(BaseModel):
@@ -27,7 +28,7 @@ class Post(BaseModel):
     title: str = Field(..., example="El agua y su importancia")
     content: str = Field(..., example="El agua es un recurso natural vital para la vida")
     date_added: str = Field(..., example="2021-09-01")
-    img: str = Field(..., example="agua.jpg")
+    img: UploadFile = File(...)
     id_user: int = Field(..., example=1)
 
 class Article(BaseModel):

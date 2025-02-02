@@ -1,5 +1,6 @@
 import json
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from routes import items
 
 # Cargar la metadata de los tags desde el archivo JSON
@@ -12,6 +13,8 @@ app = FastAPI(
     version="0.0.1",
     openapi_tags=tags_metadata
 )
+
+app.mount("/test", StaticFiles(directory="test"), name="test")
 
 # Incluir las rutas definidas en items.py
 app.include_router(items.router)
