@@ -4,6 +4,10 @@
         "description": "Operaciones con usuarios"
     },
     {
+        "name": "auth",
+        "description": "Operaciones de autenticación"
+    },
+    {
         "name": "roles",
         "description": "Operaciones con roles"
     },
@@ -28,7 +32,7 @@
         "description": "Operaciones con comentarios de post"
     },
     {
-        "name": "post/answers",
+        "name": "post/comments/answers",
         "description": "Operaciones con respuestas de post"
     }
 ]

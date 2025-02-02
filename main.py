@@ -9,8 +9,8 @@ with open("tags_metadata.json") as f:
 
 app = FastAPI(
     title="Tuna Awainan API",
-    description="Prueba de API con FastAPI",
-    version="0.0.1",
+    description="Backend de tuna awainan",
+    version="1.0",
     openapi_tags=tags_metadata
 )
 
