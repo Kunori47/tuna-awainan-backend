@@ -10,7 +10,7 @@ class User(BaseModel):
 
 class Role(BaseModel):
     id: int = Field(..., example=1)
-    name: str = Field(..., example="Administrador")
+    name_role: str = Field(..., example="Administrador")
 
 class Tag(BaseModel):
     id: int = Field(..., example=1)
@@ -21,7 +21,7 @@ class Specimen(BaseModel):
     name: str = Field(..., example="Pez")
     name_scientific: str = Field(..., example="Pisces")
     description: str = Field(..., example="Pez de agua dulce")
-    img: str = Field(..., example="pez.jpg")
+    img: UploadFile = File(...)
 
 class Post(BaseModel):
     id: int = Field(..., example=1)
@@ -36,7 +36,7 @@ class Article(BaseModel):
     title: str = Field(..., example="El agua y su importancia")
     description: str = Field(..., example="El agua es un recurso natural vital para la vida")
     date_added: str = Field(..., example="2021-09-01")
-    img: str = Field(..., example="agua.jpg")
+    img: UploadFile = File(...)
     id_tag: int = Field(..., example=1)
 
 class CommentPost(BaseModel):

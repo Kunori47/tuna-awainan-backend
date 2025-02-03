@@ -181,9 +181,10 @@ class ArticlesService:
     def get_articles(self):
         database.execute("SELECT * FROM articles")
         articles = database.fetchall()
+
         article_list = []
         for article in articles:
-            img_base64 = base64.b64encode(article[4]).decode('utf-8') if article[3] else None
+            img_base64 = base64.b64encode(article[4]).decode('utf-8') if article[4] else None
             article_dict = {
                 "id": article[0],
                 "title": article[1],
@@ -215,19 +216,22 @@ class SpecimensService:
         specimens = database.fetchall()
         specimen_list = []
         for specimen in specimens:
+            img_base64 = base64.b64encode(specimen[4]).decode('utf-8') if specimen[4] else None
             specimen_dict = {
                 "id": specimen[0],
                 "name": specimen[1],
                 "name_scientific": specimen[2],
                 "description": specimen[3],
-                "img": specimen[4]
+                "img": img_base64
             }
             specimen_list.append(specimen_dict)
         return specimen_list
     
-    def create_specimen(self, name: str, name_scientific: str, description: str, img: str):
+    def create_specimen(self, name: str, name_scientific: str, description: str, img: UploadFile):
+        image_blob = img.file.read()
+
         database.execute("INSERT INTO specimens (name, name_scientific, description, img) VALUES (?, ?, ?, ?)",
-                          (name, name_scientific, description, img))
+                          (name, name_scientific, description, image_blob))
         conn.commit()
         return {"message": "Specimen created successfully"}
     

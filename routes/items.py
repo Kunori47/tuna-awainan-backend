@@ -33,19 +33,21 @@ async def login_user(email: str, password: str):
     token = AuthController().generate_token(user["id"])
     return {"message": "Login successful", "token": token}
 
-@router.get("/roles", tags=["roles"], response_model=Role)
+@router.get("/roles", tags=["roles"], response_model=List[Role])
 async def read_roles():
     database.execute("SELECT * FROM roles")
     roles = database.fetchall()
-    return roles
+    roles_list = [{"id": role[0], "name_role": role[1]} for role in roles]
+    return roles_list
 
-@router.get("/tags", tags=["tags"], response_model=Tag)
+@router.get("/tags", tags=["tags"], response_model=List[Tag])
 async def read_tags():
     database.execute("SELECT * FROM tags")
     tags = database.fetchall()
-    return tags
+    tags_list = [{"id": tag[0], "name": tag[1]} for tag in tags]
+    return tags_list
 
-@router.get("/specimens", tags=["specimens"], response_model=Specimen)
+@router.get("/specimens", tags=["specimens"], response_model=List[dict])
 async def read_specimens():
     return SpecimensController().get_specimens()
 
@@ -69,7 +71,7 @@ async def create_post(title: str, content: str, id_user: int, img: UploadFile):
 async def delete_post(id: int):
     return PostController().delete_post(id)
 
-@router.get("/articles", tags=["articles"], response_model=Article)
+@router.get("/articles", tags=["articles"], response_model=List[dict])
 async def read_articles():
     return ArticlesController().get_articles()
 

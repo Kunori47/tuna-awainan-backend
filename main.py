@@ -1,6 +1,5 @@
 import json
 from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
 from routes import items
 
 # Cargar la metadata de los tags desde el archivo JSON
